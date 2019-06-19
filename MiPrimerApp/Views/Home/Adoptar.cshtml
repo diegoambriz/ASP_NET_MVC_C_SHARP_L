@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MiPrimerApp.Models.Mascota>
+
+@{
+    ViewBag.Title = "Adoptar";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+<section class="content">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="well">
+                        <h2 class="text-warning">@item.Nombre</h2>
+                        @if (item.Adoptada)
+                        {
+                            <p><span class="label label-default">Adoptado</span></p>
+                        }
+                        else
+                        {
+                            <p><span class="label label-success">Disponible</span></p>
+                        }
+                    <ul>
+                        <li>Edad: @item.Edad</li>
+                        <li>Contacto: @item.CorreoContacto</li>
+                    </ul>
+                    <p><strong>Descripcion:</strong></p>
+                    <p>@item.Descripcion</p>
+                    @if (!item.Adoptada)
+                    {
+                        <p><a class="btn btn-success btn-sm" href="#">Adoptar!</a></p>
+                    }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+<!--
+    
+-->
